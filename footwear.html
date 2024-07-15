@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footwear - Myntra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+            background-color: rgb(129, 242, 166);
+            color: rgb(18, 9, 9);
+        }
+        h1, h2, h3 {
+            color: #e90c89;
+        }
+        .button {
+            background-color: #ff3e6c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Card Container */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        /* Individual Card */
+        .card {
+            background-color: white;
+            color: black;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            width: calc(100% - 40px); /* Full width minus padding */
+            max-width: 300px; /* Max width of card */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            color: #ff3e6c;
+        }
+
+        .card-content p {
+            margin: 10px 0;
+        }
+
+        /* Hover Effect */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 600px) {
+            .card {
+                width: calc(50% - 40px); /* Half width minus padding */
+            }
+        }
+
+        @media (min-width: 900px) {
+            .card {
+                width: calc(33.333% - 40px); /* Third width minus padding */
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .card {
+                width: calc(25% - 40px); /* Quarter width minus padding */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Footwear</h1>
+    <div class="poll">
+        <h2>Vote for Your Favorite Footwear</h2>
+        <form id="footwear-form">
+            <label>
+                <input type="radio" name="footwear" value="Sneakers" onclick="showOptions('sneakers')"> Sneakers
+            </label>
+            <label>
+                <input type="radio" name="footwear" value="Sandals" onclick="showOptions('sandals')"> Sandals
+            </label>
+            <label>
+                <input type="radio" name="footwear" value="Boots" onclick="showOptions('boots')"> Boots
+            </label>
+            <label>
+                <input type="radio" name="footwear" value="Formal Shoes" onclick="showOptions('formal-shoes')"> Formal Shoes
+            </label>
+            <label>
+                <input type="radio" name="footwear" value="Heels" onclick="showOptions('heels')"> Heels
+            </label>
+        </form>
+
+        <div id="sneakers" class="hidden">
+            <h3>Choose Your Favorite Sneakers</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="sneakerA.jfif" alt="Sneaker A">
+                    <div class="card-content">
+                        <h3>Sneaker A</h3>
+                        <label>
+                            <input type="radio" name="sneaker" value="Sneaker A"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="sneakB.png" alt="Sneaker B">
+                    <div class="card-content">
+                        <h3>Sneaker B</h3>
+                        <label>
+                            <input type="radio" name="sneaker" value="Sneaker B"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="sneakC.png" alt="Sneaker C">
+                    <div class="card-content">
+                        <h3>Sneaker C</h3>
+                        <label>
+                            <input type="radio" name="sneaker" value="Sneaker C"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="sneakD.jfif" alt="Sneaker D">
+                    <div class="card-content">
+                        <h3>Sneaker D</h3>
+                        <label>
+                            <input type="radio" name="sneaker" value="Sneaker D"> Select
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="button" onclick="vote('sneaker')">Vote</button>
+        </div>
+
+        <div id="sandals" class="hidden">
+            <h3>Choose Your Favorite Sandals</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="sandA.jpg" alt="Sandal A">
+                    <div class="card-content">
+                        <h3>Sandal A</h3>
+                        <label>
+                            <input type="radio" name="sandal" value="Sandal A"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="sandB.jpg" alt="Sandal B">
+                    <div class="card-content">
+                        <h3>Sandal B</h3>
+                        <label>
+                            <input type="radio" name="sandal" value="Sandal B"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="sandC.jpg" alt="Sandal C">
+                    <div class="card-content">
+                        <h3>Sandal C</h3>
+                        <label>
+                            <input type="radio" name="sandal" value="Sandal C"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="sandD.jpg" alt="Sandal D">
+                    <div class="card-content">
+                        <h3>Sandal D</h3>
+                        <label>
+                            <input type="radio" name="sandal" value="Sandal D"> Select
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="button" onclick="vote('sandal')">Vote</button>
+        </div>
+
+        <div id="boots" class="hidden">
+            <h3>Choose Your Favorite Boots</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="bootA.jpg" alt="Boot A">
+                    <div class="card-content">
+                        <h3>Boot A</h3>
+                        <label>
+                            <input type="radio" name="boot" value="Boot A"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="bootB.jpg" alt="Boot B">
+                    <div class="card-content">
+                        <h3>Boot B</h3>
+                        <label>
+                            <input type="radio" name="boot" value="Boot B"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="bootC.jpg" alt="Boot C">
+                    <div class="card-content">
+                        <h3>Boot C</h3>
+                        <label>
+                            <input type="radio" name="boot" value="Boot C"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="bootD.jpg" alt="Boot D">
+                    <div class="card-content">
+                        <h3>Boot D</h3>
+                        <label>
+                            <input type="radio" name="boot" value="Boot D"> Select
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="button" onclick="vote('boot')">Vote</button>
+        </div>
+
+        <div id="formal-shoes" class="hidden">
+            <h3>Choose Your Favorite Formal Shoes</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="fshoeA.jpg" alt="Formal Shoe A">
+                    <div class="card-content">
+                        <h3>Formal Shoe A</h3>
+                        <label>
+                            <input type="radio" name="formal-shoe" value="Formal Shoe A"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="fshoeB.jpg" alt="Formal Shoe B">
+                    <div class="card-content">
+                        <h3>Formal Shoe B</h3>
+                        <label>
+                            <input type="radio" name="formal-shoe" value="Formal Shoe B"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="fshoeC.jpg" alt="Formal Shoe C">
+                    <div class="card-content">
+                        <h3>Formal Shoe C</h3>
+                        <label>
+                            <input type="radio" name="formal-shoe" value="Formal Shoe C"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="fshoeD.jpg" alt="Formal Shoe D">
+                    <div class="card-content">
+                        <h3>Formal Shoe D</h3>
+                        <label>
+                            <input type="radio" name="formal-shoe" value="Formal Shoe D"> Select
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="button" onclick="vote('formal-shoe')">Vote</button>
+        </div>
+
+        <div id="heels" class="hidden">
+            <h3>Choose Your Favorite Heels</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="heelA.jpg" alt="Heel A">
+                    <div class="card-content">
+                        <h3>Heel A</h3>
+                        <label>
+                            <input type="radio" name="heel" value="Heel A"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="heelB.jpg" alt="Heel B">
+                    <div class="card-content">
+                        <h3>Heel B</h3>
+                        <label>
+                            <input type="radio" name="heel" value="Heel B"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="heelC.jpg" alt="Heel C">
+                    <div class="card-content">
+                        <h3>Heel C</h3>
+                        <label>
+                            <input type="radio" name="heel" value="Heel C"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="heelD.jpg" alt="Heel D">
+                    <div class="card-content">
+                        <h3>Heel D</h3>
+                        <label>
+                            <input type="radio" name="heel" value="Heel D"> Select
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="button" onclick="vote('heel')">Vote</button>
+        </div>
+    </div>
+
+    <script>
+        function showOptions(option) {
+            // Hide all options
+            document.getElementById('sneakers').classList.add('hidden');
+            document.getElementById('sandals').classList.add('hidden');
+            document.getElementById('boots').classList.add('hidden');
+            document.getElementById('formal-shoes').classList.add('hidden');
+            document.getElementById('heels').classList.add('hidden');
+
+            // Show the selected option
+            document.getElementById(option).classList.remove('hidden');
+        }
+
+        function vote(type) {
+            const selectedOption = document.querySelector(`input[name="${type}"]:checked`);
+            if (selectedOption) {
+                alert(`You voted for: ${selectedOption.value}`);
+            } else {
+                alert('Please select an option before voting.');
+            }
+        }
+    </script>
+</body>
+</html>

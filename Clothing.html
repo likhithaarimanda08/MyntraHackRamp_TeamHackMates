@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing - Myntra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+            background-color: rgb(190, 164, 243);
+            color: rgb(0, 0, 0);
+        }
+        h1, h2, h3 {
+            color: #360dda;
+        }
+        .button {
+            background-color: #ff3e6c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Card Container */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        /* Individual Card */
+        .card {
+            background-color: white;
+            color: black;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            width: calc(100% - 40px); /* Full width minus padding */
+            max-width: 300px; /* Max width of card */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            color: #ff3e6c;
+        }
+
+        .card-content p {
+            margin: 10px 0;
+        }
+
+        /* Hover Effect */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 600px) {
+            .card {
+                width: calc(50% - 40px); /* Half width minus padding */
+            }
+        }
+
+        @media (min-width: 900px) {
+            .card {
+                width: calc(33.333% - 40px); /* Third width minus padding */
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .card {
+                width: calc(25% - 40px); /* Quarter width minus padding */
+            }
+        }
+    </style>
+</head>
+<body>
+    <center> <h1 style="width:100px; height: 20px;">Clothing</h1></center> 
+   
+    <div class="poll">
+        <br>
+        <h2>Vote for Your Favorite Clothing Item</h2>
+        <form id="clothing-form">
+            <label>
+                <input type="radio" name="clothing" value="T-Shirts" onclick="showOptions('t-shirts')"> T-Shirts
+            </label>
+            <label>
+                <input type="radio" name="clothing" value="Jeans" onclick="showOptions('jeans')"> Jeans
+            </label>
+            <label>
+                <input type="radio" name="clothing" value="Jackets" onclick="showOptions('jackets')"> Jackets
+            </label>
+            <label>
+                <input type="radio" name="clothing" value="Shirts" onclick="showOptions('shirts')"> Shirts
+            </label>
+            <label>
+                <input type="radio" name="clothing" value="Sweaters" onclick="showOptions('sweaters')"> Sweaters
+            </label>
+        </form>
+
+        <div id="t-shirts" class="hidden">
+            <h3>Choose Your Favorite T-Shirt</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="./tshirt/tshirtA.jpg" alt="T-Shirt A">
+                    <div class="card-content">
+                        <h3>T-Shirt A</h3>
+                        <label>
+                            <input type="radio" name="tshirt" value="T-Shirt A"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./tshirt/tshirtB.jpg" alt="T-Shirt B">
+                    <div class="card-content">
+                        <h3>T-Shirt B</h3>
+                        <label>
+                            <input type="radio" name="tshirt" value="T-Shirt B"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./tshirt/tshirtC.jpg" alt="T-Shirt C">
+                    <div class="card-content">
+                        <h3>T-Shirt C</h3>
+                        <label>
+                            <input type="radio" name="tshirt" value="T-Shirt C"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./tshirt/tshirtD.jpg" alt="T-Shirt D">
+                    <div class="card-content">
+                        <h3>T-Shirt D</h3>
+                        <label>
+                            <input type="radio" name="tshirt" value="T-Shirt D"> Select
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="button" onclick="vote('tshirt')">Vote</button>
+        </div>
+
+        <div id="jeans" class="hidden">
+            <h3>Choose Your Favorite Jeans</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="jeansA.jpg" alt="Jeans A">
+                    <div class="card-content">
+                        <h3>Jeans A</h3>
+                        <label>
+                            <input type="radio" name="jean" value="Jeans A"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="jeansB.jpg" alt="Jeans B">
+                    <div class="card-content">
+                        <h3>Jeans B</h3>
+                        <label>
+                            <input type="radio" name="jean" value="Jeans B"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="jeansC.jpg" alt="Jeans C">
+                    <div class="card-content">
+                        <h3>Jeans C</h3>
+                        <label>
+                            <input type="radio" name="jean" value="Jeans C"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="jeansD.jpg" alt="Jeans D">
+                    <div class="card-content">
+                        <h3>Jeans D</h3>
+                        <label>
+                            <input type="radio" name="jean" value="Jeans D"> Select
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="button" onclick="vote('jean')">Vote</button>
+        </div>
+
+        <div id="jackets" class="hidden">
+            <h3>Choose Your Favorite Jacket</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="jackA.jpg" alt="Jacket A">
+                    <div class="card-content">
+                        <h3>Jacket A</h3>
+                        <label>
+                            <input type="radio" name="jacket" value="Jacket A"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="jackB.jpg" alt="Jacket B">
+                    <div class="card-content">
+                        <h3>Jacket B</h3>
+                        <label>
+                            <input type="radio" name="jacket" value="Jacket B"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="jackC.jpg" alt="Jacket C">
+                    <div class="card-content">
+                        <h3>Jacket C</h3>
+                        <label>
+                            <input type="radio" name="jacket" value="Jacket C"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="jackD.jpg" alt="Jacket D">
+                    <div class="card-content">
+                        <h3>Jacket D</h3>
+                        <label>
+                            <input type="radio" name="jacket" value="Jacket D"> Select
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="button" onclick="vote('jacket')">Vote</button>
+        </div>
+
+        <div id="shirts" class="hidden">
+            <h3>Choose Your Favorite Shirt</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="shirtA.jpg" alt="Shirt A">
+                    <div class="card-content">
+                        <h3>Shirt A</h3>
+                        <label>
+                            <input type="radio" name="shirt" value="Shirt A"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="shirtB.jpg" alt="Shirt B">
+                    <div class="card-content">
+                        <h3>Shirt B</h3>
+                        <label>
+                            <input type="radio" name="shirt" value="Shirt B"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="shirtC.jpg" alt="Shirt C">
+                    <div class="card-content">
+                        <h3>Shirt C</h3>
+                        <label>
+                            <input type="radio" name="shirt" value="Shirt C"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="shirtD.jpg" alt="Shirt D">
+                    <div class="card-content">
+                        <h3>Shirt D</h3>
+                        <label>
+                            <input type="radio" name="shirt" value="Shirt D"> Select
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="button" onclick="vote('shirt')">Vote</button>
+        </div>
+
+        <div id="sweaters" class="hidden">
+            <h3>Choose Your Favorite Sweater</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="sweaA.jpg" alt="Sweater A">
+                    <div class="card-content">
+                        <h3>Sweater A</h3>
+                        <label>
+                            <input type="radio" name="sweater" value="Sweater A"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="sweaB.jpg" alt="Sweater B">
+                    <div class="card-content">
+                        <h3>Sweater B</h3>
+                        <label>
+                            <input type="radio" name="sweater" value="Sweater B"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="sweaC.jpg" alt="Sweater C">
+                    <div class="card-content">
+                        <h3>Sweater C</h3>
+                        <label>
+                            <input type="radio" name="sweater" value="Sweater C"> Select
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="sweaD.jpg" alt="Sweater D">
+                    <div class="card-content">
+                        <h3>Sweater D</h3>
+                        <label>
+                            <input type="radio" name="sweater" value="Sweater D"> Select
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="button" onclick="vote('sweater')">Vote</button>
+        </div>
+    </div>
+
+    <a href="start.html" class="button">Back</a>
+
+   
+    <script>
+        function showOptions(item) {
+            const items = ['t-shirts', 'jeans', 'jackets', 'shirts', 'sweaters'];
+            items.forEach(it => {
+                document.getElementById(it).classList.add('hidden');
+            });
+            document.getElementById(item).classList.remove('hidden');
+        }
+    
+        function vote(category) {
+            const options = document.querySelectorAll(`#${category} input[type="radio"]`);
+            let selected;
+            options.forEach(option => {
+                if (option.checked) {
+                    selected = option.value;
+                }
+            });
+    
+            if (selected) {
+                // Store the vote in localStorage
+                let votes = JSON.parse(localStorage.getItem('votes')) || {};
+                votes[category] = votes[category] || {};
+                votes[category][selected] = (votes[category][selected] || 0) + 1;
+                localStorage.setItem('votes', JSON.stringify(votes));
+    
+                // Display number of times the option has been selected
+                const count = votes[category][selected];
+                alert(`You voted for ${selected} in the ${category} category. This option has been selected ${count} times.`);
+    
+                // Redirect to results page (if needed)
+                // window.location.href = `results.html`;
+            } else {
+                alert('Please select an option before voting.');
+            }
+        }
+    </script>
+    
+</body> 
+</html>

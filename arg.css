@@ -1,0 +1,270 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+            background-color: black;
+            color: white;
+        }
+        h1, h2, h3 {
+            color: #ff3e6c;
+        }
+        .button {
+            background-color: #ff3e6c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+        .item-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .item-card {
+            background-color: #333;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+            transition: transform 0.2s;
+        }
+        .item-card:hover {
+            transform: scale(1.05);
+        }
+        .item-image {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .item-label {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Accessory</h1>
+    <div class="poll">
+        <h2>Vote for Your Favorite Accessory</h2>
+        <form id="accessory-form">
+            <label>
+                <input type="radio" name="accessory" value="Jewelry" onclick="showOptions('jewelry')"> Jewelry
+            </label>
+            <label>
+                <input type="radio" name="accessory" value="Bags" onclick="showOptions('bags')"> Bags
+            </label>
+            <label>
+                <input type="radio" name="accessory" value="Belts" onclick="showOptions('belts')"> Belts
+            </label>
+            <label>
+                <input type="radio" name="accessory" value="Hats" onclick="showOptions('hats')"> Hats
+            </label>
+            <label>
+                <input type="radio" name="accessory" value="Scarves" onclick="showOptions('scarves')"> Scarves
+            </label>
+        </form>
+
+        <div id="jewelry" class="hidden">
+            <h3>Choose Your Favorite Jewelry</h3>
+            <div class="item-container">
+                <div class="item-card">
+                    <img src="jwelA.jpg" alt="Jewelry A" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="jewelry" value="Jewelry A"> Jewelry A
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="jwelB.jpg" alt="Jewelry B" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="jewelry" value="Jewelry B"> Jewelry B
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="jwelC.jpg" alt="Jewelry C" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="jewelry" value="Jewelry C"> Jewelry C
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="jwelD.jpg" alt="Jewelry D" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="jewelry" value="Jewelry D"> Jewelry D
+                    </label>
+                </div>
+            </div>
+            <button class="button" onclick="vote('jewelry')">Vote</button>
+        </div>
+
+        <div id="bags" class="hidden">
+            <h3>Choose Your Favorite Bag</h3>
+            <div class="item-container">
+                <div class="item-card">
+                    <img src="bagA.jpg" alt="Bag A" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="bag" value="Bag A"> Bag A
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="bagB.jpg" alt="Bag B" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="bag" value="Bag B"> Bag B
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="bagC.jpg" alt="Bag C" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="bag" value="Bag C"> Bag C
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="bagD.jpg" alt="Bag D" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="bag" value="Bag D"> Bag D
+                    </label>
+                </div>
+            </div>
+            <button class="button" onclick="vote('bag')">Vote</button>
+        </div>
+
+        <div id="belts" class="hidden">
+            <h3>Choose Your Favorite Belt</h3>
+            <div class="item-container">
+                <div class="item-card">
+                    <img src="beltA.jpg" alt="Belt A" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="belt" value="Belt A"> Belt A
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="beltB.jpg" alt="Belt B" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="belt" value="Belt B"> Belt B
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="beltC.jpg" alt="Belt C" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="belt" value="Belt C"> Belt C
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="beltD.jpg" alt="Belt D" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="belt" value="Belt D"> Belt D
+                    </label>
+                </div>
+            </div>
+            <button class="button" onclick="vote('belt')">Vote</button>
+        </div>
+
+        <div id="hats" class="hidden">
+            <h3>Choose Your Favorite Hat</h3>
+            <div class="item-container">
+                <div class="item-card">
+                    <img src="hatA.jpg" alt="Hat A" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="hat" value="Hat A"> Hat A
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="hatB.jpg" alt="Hat B" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="hat" value="Hat B"> Hat B
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="hatC.jpg" alt="Hat C" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="hat" value="Hat C"> Hat C
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="hatD.jpg" alt="Hat D" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="hat" value="Hat D"> Hat D
+                    </label>
+                </div>
+            </div>
+            <button class="button" onclick="vote('hat')">Vote</button>
+        </div>
+
+        <div id="scarves" class="hidden">
+            <h3>Choose Your Favorite Scarf</h3>
+            <div class="item-container">
+                <div class="item-card">
+                    <img src="scarfA.jpg" alt="Scarf A" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="scarf" value="Scarf A"> Scarf A
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="scarfB.jpg" alt="Scarf B" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="scarf" value="Scarf B"> Scarf B
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="scarfC.jpg" alt="Scarf C" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="scarf" value="Scarf C"> Scarf C
+                    </label>
+                </div>
+                <div class="item-card">
+                    <img src="scarfD.jpg" alt="Scarf D" class="item-image">
+                    <label class="item-label">
+                        <input type="radio" name="scarf" value="Scarf D"> Scarf D
+                    </label>
+                </div>
+            </div>
+            <button class="button" onclick="vote('scarf')">Vote</button>
+        </div>
+    </div>
+
+    <a href="index.html" class="button">Back</a>
+
+    <script>
+        function showOptions(item) {
+            const items = ['jewelry', 'bags', 'belts', 'hats', 'scarves'];
+            items.forEach(it => {
+                document.getElementById(it).classList.add('hidden');
+            });
+            document.getElementById(item).classList.remove('hidden');
+        }
+
+        function vote(category) {
+            const options = document.querySelectorAll(`#${category} input[type="radio"]`);
+            let selected;
+            options.forEach(option => {
+                if (option.checked) {
+                    selected = option.value;
+                }
+            });
+
+            if (selected) {
+                alert(`You voted for ${selected} in the ${category} category.`);
+                // Store the vote in localStorage
+                let votes = JSON.parse(localStorage.getItem('votes')) || {};
+                votes[category] = votes[category] || {};
+                votes[category][selected] = (votes[category][selected] || 0) + 1;
+                localStorage.setItem('votes', JSON.stringify(votes));
+                // Redirect to results page
+                window.location.href = `results.html?category=${category}`;
+            } else {
+                alert('Please select an option to vote.');
+            }
+        }
+    </script>
+</body>
+</html>

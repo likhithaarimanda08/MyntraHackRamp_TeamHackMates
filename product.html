@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products</title>
+    <link rel="stylesheet" href="start.css">
+    <style>
+      /* General Styles */
+
+    </style>
+</head>
+<body>
+    <!-- <header>
+        <div class="container">
+            <h1 class="logo"><img src="" alt="logo"</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Clothing.html">Clothing</a></li>
+                    <li><a href="#">Footwear</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Sketch</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">&#9776;</div>
+        </div>
+    </header>
+    </header> -->
+  <center> <h1 style="width:100px; height: 20px;">Clothing</h1></center> 
+    <section id="products">
+        
+    <div class="poll">
+        <br>
+        <h2>Vote for Your Favorite Clothing Item</h2>
+        <form id="clothing-form">
+            <label>
+                <input type="radio" name="clothing" value="T-Shirts" onclick="showOptions('t-shirts')"> T-Shirts
+            </label>
+            <label>
+                <input type="radio" name="clothing" value="Jeans" onclick="showOptions('jeans')"> Jeans
+            </label>
+            <label>
+                <input type="radio" name="clothing" value="Jackets" onclick="showOptions('jackets')"> Jackets
+            </label>
+            <label>
+                <input type="radio" name="clothing" value="Shirts" onclick="showOptions('shirts')"> Shirts
+            </label>
+            <label>
+                <input type="radio" name="clothing" value="Sweaters" onclick="showOptions('sweaters')"> Sweaters
+            </label>
+        </form>
+        <div class="product-container">
+            <h3>Choose Your Favorite T-Shirt</h3>
+            
+            <div class="product-card" data-product-id="1">
+                <img src="./tshirt/tshirtA.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$10.00</p>
+                <div class="vote-section">
+                    <button class="vote-up">Upvote</button>
+                    <span class="vote-count">0</span>
+                    <button class="vote-down">Downvote</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="2">
+                <img src="./tshirt/tshirtB.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>$20.00</p>
+                <div class="vote-section">
+                    <button class="vote-up">Upvote</button>
+                    <span class="vote-count">0</span>
+                    <button class="vote-down">Downvote</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="3">
+                <img src="./tshirt/tshirtC.jpg" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>$30.00</p>
+                <div class="vote-section">
+                    <button class="vote-up">Upvote</button>
+                    <span class="vote-count">0</span>
+                    <button class="vote-down">Downvote</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="4">
+                <img src="./tshirt/tshirtD.jpg" alt="Product 4">
+                <h3>Product 4</h3>
+                <p>$40.00</p>
+                <div class="vote-section">
+                    <button class="vote-up">Upvote</button>
+                    <span class="vote-count">0</span>
+                    <button class="vote-down">Downvote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+
+    <!--<script src="scripts.js"></script>-->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+    const voteButtons = document.querySelectorAll('.vote-up, .vote-down');
+    
+    voteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const voteSection = this.parentElement;
+            const voteCountSpan = voteSection.querySelector('.vote-count');
+            let voteCount = parseInt(voteCountSpan.textContent);
+
+            if (this.classList.contains('vote-up')) {
+                voteCount++;
+            } else if (this.classList.contains('vote-down')) {
+                voteCount--;
+            }
+
+            voteCountSpan.textContent = voteCount;
+        });
+    });
+});
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Form submitted!');
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Myntra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+            background-color: black;
+            color: white;
+        }
+        h1, h2, h3 {
+            color: #ff3e6c;
+        }
+        .button {
+            background-color: #ff3e6c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+    <div id="results"></div>
+    <a href="index.html" class="button">Back</a>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            const votes = JSON.parse(localStorage.getItem('votes')) || {};
+            const categoryVotes = votes[category] || {};
+            let resultsDiv = document.getElementById('results');
+            let resultsHtml = `<h2>Results for ${category}</h2>`;
+            for (let item in categoryVotes) {
+                resultsHtml += `<p>${item}: ${categoryVotes[item]} votes</p>`;
+            }
+            resultsDiv.innerHTML = resultsHtml;
+        });
+    </script>
+</body>
+</html>

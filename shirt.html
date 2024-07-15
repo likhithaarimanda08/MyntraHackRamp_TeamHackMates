@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products</title>
+    <link rel="stylesheet" href="start.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+            background-color: black;
+            color: white;
+        }
+        h1 {
+            color: #ff3e6c;
+        }
+        .poll {
+            margin-top: 20px;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .product-card {
+            background-color: white;
+            color: black;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            width: calc(100% - 40px); /* Full width minus padding */
+            max-width: 300px; /* Max width of card */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .product-card h3 {
+            margin: 10px 0;
+            color: #ff3e6c;
+        }
+        .product-card p {
+            margin: 10px 0;
+        }
+        .vote-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .vote-section button {
+            background-color: #ff3e6c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .vote-count {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Clothing</h1></center>
+
+    <section id="products">
+        <div class="poll">
+            <h2>Vote for Your Favorite Clothing Item</h2>
+            <form id="clothing-form">
+                <label>
+                    <input type="radio" name="clothing" value="T-Shirts" onclick="showOptions('t-shirts')"> T-Shirts
+                </label>
+                <label>
+                    <input type="radio" name="clothing" value="Jeans" onclick="showOptions('jeans')"> Jeans
+                </label>
+                <label>
+                    <input type="radio" name="clothing" value="Jackets" onclick="showOptions('jackets')"> Jackets
+                </label>
+                <label>
+                    <input type="radio" name="clothing" value="Shirts" onclick="showOptions('shirts')"> Shirts
+                </label>
+                <label>
+                    <input type="radio" name="clothing" value="Sweaters" onclick="showOptions('sweaters')"> Sweaters
+                </label>
+            </form>
+            <div class="product-container" id="product-container">
+                <!-- Product cards will be dynamically populated -->
+            </div>
+        </div>
+    </section>
+<!-- 
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer> -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const products = {
+                't-shirts': [
+                    { id: 1, name: 'T-Shirt A', image: './tshirt/tshirtA.jpg' },
+                    { id: 2, name: 'T-Shirt B', image: './tshirt/tshirtB.jpg' },
+                    { id: 3, name: 'T-Shirt C', image: './tshirt/tshirtC.jpg' },
+                    { id: 4, name: 'T-Shirt D', image: './tshirt/tshirtD.jpg' }
+                ],
+                'jeans': [
+                    { id: 1, name: 'Jeans A', image: './jeansA.jpg' },
+                    { id: 2, name: 'Jeans B', image: './jeansB.jpg' },
+                    { id: 3, name: 'Jeans C', image: './jeansC.jpg' },
+                    { id: 4, name: 'Jeans D', image: './jeansD.jpg' }
+                ],
+                'jackets': [
+                    { id: 1, name: 'Jacket A', image: './jackA.jpg' },
+                    { id: 2, name: 'Jacket B', image: './jackB.jpg' },
+                    { id: 3, name: 'Jacket C', image: './jackC.jpg' },
+                    { id: 4, name: 'Jacket D', image: './jackD.jpg' }
+                ],
+                'shirts': [
+                    { id: 1, name: 'Shirt A', image: './tshirt/tshirtA' },
+                    { id: 2, name: 'Shirt B', image: './shirtB.jpg' },
+                    { id: 3, name: 'Shirt C', image: './shirtC.jpg' },
+                    { id: 4, name: 'Shirt D', image: './shirtD.jpg' }
+                ],
+                'sweaters': [
+                    { id: 1, name: 'Sweater A', image: './sweaA.jpg' },
+                    { id: 2, name: 'Sweater B', image: './sweaB.jpg' },
+                    { id: 3, name: 'Sweater C', image: './sweaC.jpg' },
+                    { id: 4, name: 'Sweater D', image: './sweaD.jpg' }
+                ]
+            };
+
+            function showOptions(category) {
+                const productContainer = document.getElementById('product-container');
+                productContainer.innerHTML = '';
+
+                products[category].forEach(product => {
+                    const card = document.createElement('div');
+                    card.classList.add('product-card');
+                    card.setAttribute('data-product-id', product.id);
+
+                    const image = document.createElement('img');
+                    image.src = product.image;
+                    image.alt = product.name;
+
+                    const name = document.createElement('h3');
+                    name.textContent = product.name;
+
+                    const voteSection = document.createElement('div');
+                    voteSection.classList.add('vote-section');
+
+                    const voteUpButton = document.createElement('button');
+                    voteUpButton.textContent = 'Upvote';
+                    voteUpButton.classList.add('vote-up');
+                    voteUpButton.addEventListener('click', () => vote(product.id, 'up'));
+
+                    const voteCountSpan = document.createElement('span');
+                    voteCountSpan.classList.add('vote-count');
+                    voteCountSpan.textContent = 0;
+
+                    const voteDownButton = document.createElement('button');
+                    voteDownButton.textContent = 'Downvote';
+                    voteDownButton.classList.add('vote-down');
+                    voteDownButton.addEventListener('click', () => vote(product.id, 'down'));
+
+                    voteSection.appendChild(voteUpButton);
+                    voteSection.appendChild(voteCountSpan);
+                    voteSection.appendChild(voteDownButton);
+
+                    card.appendChild(image);
+                    card.appendChild(name);
+                    card.appendChild(voteSection);
+
+                    productContainer.appendChild(card);
+                });
+            }
+
+            function vote(productId, type) {
+                const votes = JSON.parse(localStorage.getItem('votes')) || {};
+                const productVotes = votes[productId] || { up: 0, down: 0 };
+
+                if (type === 'up') {
+                    productVotes.up++;
+                } else if (type === 'down') {
+                    productVotes.down++;
+                }
+
+                votes[productId] = productVotes;
+                localStorage.setItem('votes', JSON.stringify(votes));
+
+                // Update UI with new vote counts
+                const productCard = document.querySelector(`.product-card[data-product-id="${productId}"]`);
+                const voteCountSpan = productCard.querySelector('.vote-count');
+                const totalVotes = productVotes.up - productVotes.down;
+                voteCountSpan.textContent = totalVotes;
+            }
+
+            // Function to load initial products (default: T-Shirts)
+            showOptions('t-shirts');
+        });
+    </script>
+</body>
+</html>
