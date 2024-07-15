@@ -14,6 +14,7 @@ Implementation
 Daily Polls: Display a selection of trending products each day.
 Voting System: Allow users to vote for their favorite item.
 Featured Product: Announce and feature the winning product prominently on the app.
+
 2. Drop Your Mind Out
 Concept
 The "Drop Your Mind Out" feature empowers customers to draw and submit their own fashion designs through the Myntra app. This platform enables users to express their creativity and share their ideas directly with the Myntra community.
